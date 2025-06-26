@@ -36,7 +36,7 @@ You designed a **star schema** based on:
 - `dim_rider`  
 - `dim_station`  
 
-![star schema](AzureScreensots/star_scema.png)
+![star schema](AzureScreensots/star_schema.png)
 
 ---
 
