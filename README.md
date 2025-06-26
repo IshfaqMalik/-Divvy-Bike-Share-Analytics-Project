@@ -35,8 +35,6 @@ You designed a **star schema** based on:
 - `fact_payment`  
 - `dim_rider`  
 - `dim_station`  
-- `dim_date` (excluded in your case)  
-- `dim_time` (optional)  
 
 📸 _Screenshot_: *ERD / Star Schema*  
 🖼️ `images/task2_star_schema.png`
