@@ -67,8 +67,7 @@ You designed a **star schema** based on:
 ✅ Used **scripts** to create **external staging tables** in serverless SQL pool.  
 - Loaded text into Synapse external tables using `CREATE EXTERNAL TABLE`
 
-📸 _Screenshot_: *External table setup in Synapse*  
-🖼️ `images/task5_external_tables.png`
+![staging tables](AzureScreensots/stagingtables.png)
 
 ---
 
@@ -83,8 +82,7 @@ You designed a **star schema** based on:
 - Reused external data source
 - Created output folders like `/fact_payment/`, `/fact_rides/`
 
-📸 _Screenshot_: *CETAS transformation in Synapse Studio*  
-🖼️ `images/task6_cetas_fact_payment.png`
+[!star schema tables](AzureScreensots/tablesblob.png)
 
 ---
 
@@ -113,7 +111,8 @@ You designed a **star schema** based on:
 
 ## 📌 Notes
 
-- No `dim_date` table used: all temporal features derived from timestamps
+
 - External tables are **read-only views** into blob storage
-- Star schema transformations are persisted as **partitioned CSVs** in Data Lake
+- Star schema transformations are persisted as **partitioned txts** in Data Lake
+  ![records](AzureScreensots/sql_results.png)
 
