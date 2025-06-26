@@ -17,7 +17,7 @@ This project builds a cloud-based data warehouse in **Azure Synapse Analytics** 
 - [x] **Azure Database for PostgreSQL** – OLTP source system  
 - [x] **Azure Synapse Workspace** – Data warehouse  
 - [x] **Serverless SQL Pool** – Used for querying & transformation  
-- ❗️Note: No dedicated SQL pool used (only serverless pool supported in lab)
+
 
 ![PostgreSQL and Synapse resource setup](AzureScreensots/Azureresources.png)  
 
@@ -27,7 +27,7 @@ This project builds a cloud-based data warehouse in **Azure Synapse Analytics** 
 ### ⭐ Task 2: Star Schema Design
 
 You designed a **star schema** based on:
-- Business goals (duration, spending, rider behavior)
+- Business goals (duration, spending, rider behaviour)
 - Source relational schema from PostgreSQL
 
 📁 Schema includes:
@@ -36,8 +36,7 @@ You designed a **star schema** based on:
 - `dim_rider`  
 - `dim_station`  
 
-📸 _Screenshot_: *ERD / Star Schema*  
-🖼️ `images/task2_star_schema.png`
+![star schema](AzureScreensots/star_scema.png)
 
 ---
 
@@ -47,26 +46,26 @@ You designed a **star schema** based on:
 - Populates 4 tables in PostgreSQL with CSV data  
 - Verified using pgAdmin  
 
-📸 _Screenshot_: *PostgreSQL table preview*  
-🖼️ `images/task3_postgres_tables.png`
+📸![PostgreSQL table preview](AzureScreensots/DATAINPOSTGRES.png)
+
 
 ---
 
 ### 📄 Task 4: Extract Data to Azure Blob Storage
 
 ✅ Used **Synapse Ingest Wizard** to extract data from PostgreSQL to Azure Blob Storage.  
-- Data for all 4 tables exported as `.csv` files  
+- Data for all 4 tables exported as `.txt` files  
 - Files now accessible via Data Lake Linked Service
 
-📸 _Screenshot_: *Ingest pipeline overview*  
-🖼️ `images/task4_extract_pipeline.png`
+![Data to Blob](AzureScreensots/datatoblob.png)
+![Files in Blob](AzureScreensots/datainblob.png)
 
 ---
 
 ### 📅 Task 5: Load Data into External Tables
 
-✅ Used **auto-generated scripts** to create **external staging tables** in serverless SQL pool.  
-- Loaded CSVs into Synapse external tables using `CREATE EXTERNAL TABLE`
+✅ Used **scripts** to create **external staging tables** in serverless SQL pool.  
+- Loaded text into Synapse external tables using `CREATE EXTERNAL TABLE`
 
 📸 _Screenshot_: *External table setup in Synapse*  
 🖼️ `images/task5_external_tables.png`
