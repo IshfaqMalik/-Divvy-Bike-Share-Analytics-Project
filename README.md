@@ -20,7 +20,7 @@ This project builds a cloud-based data warehouse in **Azure Synapse Analytics** 
 - ❗️Note: No dedicated SQL pool used (only serverless pool supported in lab)
 
 📸 _Screenshot_: *PostgreSQL and Synapse resource setup*  
-🖼️ `images/task1_resources_setup.png`
+🖼️ `Azureresources.png`
 
 ---
 
