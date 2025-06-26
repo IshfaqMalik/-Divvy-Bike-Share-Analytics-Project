@@ -82,7 +82,7 @@ You designed a **star schema** based on:
 - Reused external data source
 - Created output folders like `/fact_payment/`, `/fact_rides/`
 
-[!star schema tables](AzureScreensots/tablesblob.png)
+![star schema tables](AzureScreensots/tables_blob.png)
 
 ---
 
