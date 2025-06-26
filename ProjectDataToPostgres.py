@@ -6,7 +6,7 @@ from psycopg2.extensions import ISOLATION_LEVEL_AUTOCOMMIT
 ########################################
 host = "udacitypostgres001.postgres.database.azure.com"
 user = "ish_admin"
-password = "Rajmahal0809!"
+password = {}
 
 # import psycopg2
 
@@ -14,7 +14,7 @@ password = "Rajmahal0809!"
 #     host="udacitypostgres001.postgres.database.azure.com",
 #     dbname="postgres",
 #     user="ish_admin",
-#     password="Rajmahal0809!",
+#     password={},
 #     port=5432,
 #     sslmode="require"
 # )
