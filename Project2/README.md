@@ -35,28 +35,32 @@ The final data model uses a **star schema** with two fact tables — one for tri
 #### `fact_trips`
 - `trip_id`
 - `rider_id` (FK)
+- `rideable_type`
+-  `Started_At` 
 - `start_station_id` (FK)
+-  `Ended_At` 
 - `end_station_id` (FK)
-- `date_id` (FK)
-- `duration_mins`
-- `rider_age_at_trip`
-- `is_member`
+- `duration`
+
 
 #### `fact_payments`
 - `payment_id`
 - `rider_id` (FK)
-- `date_id` (FK)
+- `date` (FK)
 - `amount`
-- `payment_method`
+
 
 ### 📐 Dimension Tables
 
 #### `dim_riders`
 - `rider_id`
+- `first`
+- `last`
+- `birthday`
 - `account_start_date`
-- `birth_year`
+- `account_start_date`
 - `is_member`
-- `age_at_account_start`
+- `age`
 
 #### `dim_stations`
 - `station_id`
@@ -65,61 +69,54 @@ The final data model uses a **star schema** with two fact tables — one for tri
 - `longitude`
 
 #### `dim_dates`
-- `date_id`
+- `full_datetime`
+- `date`
 - `year`
 - `month`
-- `quarter`
+- `qtr`
+- `week`
 - `day_of_week`
 - `hour`
-- `date`
+- `time_of_the_day`
 
 ## 🪄 ETL Pipeline
 
 ### 1. Extract (Bronze Layer)
 - Read raw `.csv` files from `/FileStore` or ADLS
-- Write raw data to Delta format (`bronze_` tables)
 
-### 2. Transform (Silver Layer)
+
+### 2. Transform & Load (Silver Layer)
 - Clean and normalize Bronze data
 - Join tables as needed and enrich records
-- Save as intermediate Delta tables (`silver_` tables)
+- Write output as Delta tables with `overwrite` mode (tables)
 
-### 3. Load (Gold Layer)
-- Build star schema
-- Compute fact metrics: duration, age, revenue
-- Write output as Delta tables with `overwrite` mode (`gold_` tables)
+
 
 ## 📂 Project Structure
 
 .
 ├── notebooks/
-│   ├── 01_extract_bronze.ipynb
-│   ├── 02_transform_silver.ipynb
-│   ├── 03_load_gold.ipynb
-│   └── 04_analysis_queries.ipynb
+│   ├── divy_bikeshare_dataset.ipynb
 ├── README.md
-├── schema_diagram.png (optional)
-└── data/ (CSV files or mounted paths)
+├── schema_diagram.pdf
+
+
 
 ## ✅ How to Run
 
 1. Import the notebooks into Azure Databricks workspace.
-2. Run `01_extract_bronze.ipynb` to read raw CSVs and write to Delta bronze tables.
-3. Run `02_transform_silver.ipynb` to clean and stage silver data.
-4. Run `03_load_gold.ipynb` to create star schema tables.
-5. (Optional) Run `04_analysis_queries.ipynb` to explore insights.
+2. Run `divy_bikeshare_dataset.ipynb` to read raw CSVs and write to Delta  tables.
+3.
 
 ## 📈 Output Tables
 
-- `gold_fact_trips`
-- `gold_fact_payments`
-- `gold_dim_riders`
-- `gold_dim_stations`
-- `gold_dim_dates`
+- `fact_trips`
+- `fact_payments`
+- `dim_riders`
+- `dim_stations`
+- `dim_dates`
 
-## 🏅 Extra Credit
 
-- Metrics for average rides and minutes per rider per month are implemented in `04_analysis_queries.ipynb`.
 
 ## 📌 Notes
 
